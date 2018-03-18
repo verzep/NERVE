@@ -16,12 +16,7 @@ The programs consists of the following parts
 - `class_NeuralNetwork` : is used to implement istances of `NeuralNetwork` (`.h` is the header file while `.cpp` is the implementation)
 - `class_statistic`: contains some useful functions, used in the earlier versions of the code (`.h` is the header file while `.cpp` is the implementation)
 
-##Class_Neron
-
-
-
-
-
+## Class_Neuron
 
 The most basic element of a neural network is the `Neuron`. We study the evolution of its membrane potential `mp` over `time`. Each neuron behavior is regulated by the influence of other neurons (that is going to be described in the next section) and by some parameters that characterize it. Those are:
 
@@ -30,8 +25,33 @@ The most basic element of a neural network is the `Neuron`. We study the evoluti
 * `mu`: is the drift;
 * `C`: is the threshold;
  
-and are used by the function `step()` to handle the evolution on the membrane potential over time according to an Ornstein-Uhlenbeck process.
 
+and are used by the function `step` to handle the evolution on the membrane potential over time according to an Ornstein-Uhlenbeck process, that reads:
+$$
+dX(t) = -(\frac{X(t)}{\tau} + \mu) dt + \sigma * dW_t
+$$
+where $X(t)$ is the mp $W_t$ is a standard Wiener process.
+
+### Methods
+To handle the evolution in time of the `mp` the class uses various methods, namely:
+
+* `step( double noise)`: makes a single step forward in time, according to 
+``mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)``
+* `jump(double he)`: makes the 'mp' jump of the amount 'he', i.e. 
+``mp += he `` 
+* `reset()`: resets all the variables of the neuron (also the log)
+* `spike()`: registers the spike time in `spikeTimes` and set the `mp` to 0. Moreover, it notifies the network that the neuron has spiked, using `NeuralNetwork.activity`
+
+
+## Class_Neural_Network
+
+Neurons are linked to each others.
+
+
+## First Passage Times (FPTs)
+
+
+## Spike Trains (STs)
 
 
 ## Essential bibliography

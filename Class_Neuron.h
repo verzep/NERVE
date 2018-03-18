@@ -12,7 +12,6 @@ class Neuron{
 	
 	private:
 
-	NeuralNetwork 	*myNN;
 	int ID;						//number that identifies the neuron in the network (probably redundant) 
 
 	double 	time; 				//time (reduntant, should be a common time for all the neurons)
@@ -21,13 +20,13 @@ class Neuron{
 
 	double 	sigma; 				//noise intensity
 	double 	theta; 				//membrane constant
-	double 	mu; 					//input
+	double 	mu; 				//input
 	double 	C; 					//threshold
 	double 	dt;					//time interval
 
-	bool wait;					//wait for the other neuron to spike (true when interested in FPT
-	bool save_Log;				//save Logo of neural activity
-	bool sp;					//if true, last timestep neuron spiked
+	bool wait;					//wait for the other neuron to spike (true when interested in FPT)
+	bool save_Log;				//save Log of neural activity
+	bool sp;					//if true, last timestep this neuron spiked
 	
 	vector<double> spikeTimes;	// list of spike times (can be FPT or train)
 	vector <double> Log;		//log of neural activity (element i is mp at i-th step)

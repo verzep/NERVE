@@ -173,10 +173,6 @@ void Neuron::jump( double he){
 	//cout << "jump! "<< mp << endl;
 }
 
-
-
-
-
 void Neuron::reset(){
 	mp=0;
 	time=0;
@@ -185,18 +181,14 @@ void Neuron::reset(){
 	Log.clear();
 }
 
-
 void Neuron::spike(){
 	//cout << " SPIKE ID time MP " << ID << " " << time << " " << mp << endl;
 	spikeTimes.push_back(time);
 	mp=0;
 	sp = true;
-	myNN->activity(ID);
-	if (save_Log) Log.back() = 10;
-	
+	myNN->activity(ID); // myNN may not exist, this could be a problem
+	if (save_Log) Log.back() = 10;	
 }
-
-
 
 //////// IO functions
 
