@@ -28,7 +28,7 @@ The most basic element of a neural network is the `Neuron`. We study the evoluti
 
 and are used by the function `step` to handle the evolution on the membrane potential over time according to an Ornstein-Uhlenbeck process, that reads:
 
-(<a href="http://www.codecogs.com/eqnedit.php?latex=dX(t)&space;=&space;-(\frac{X(t)}{\tau}&space;&plus;&space;\mu)&space;dt&space;&plus;&space;\sigma&space;dW_t" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dX(t)&space;=&space;-(\frac{X(t)}{\tau}&space;&plus;&space;\mu)&space;dt&space;&plus;&space;\sigma&space;dW_t" title="dX(t) = -(\frac{X(t)}{\tau} + \mu) dt + \sigma dW_t" /></a>)
+<a href="http://www.codecogs.com/eqnedit.php?latex=dX(t)&space;=&space;-(\frac{X(t)}{\tau}&space;&plus;&space;\mu)&space;dt&space;&plus;&space;\sigma&space;dW_t" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dX(t)&space;=&space;-(\frac{X(t)}{\tau}&space;&plus;&space;\mu)&space;dt&space;&plus;&space;\sigma&space;dW_t" title="dX(t) = -(\frac{X(t)}{\tau} + \mu) dt + \sigma dW_t" /></a>
 
 where *X(t)* is the mp *W* is a standard Wiener process.
 
