@@ -36,14 +36,12 @@ where *X(t)* is the mp *W* is a standard Wiener process.
 To handle the evolution in time of the `mp` the class uses various methods, namely:
 
 * `step( double noise)`: makes a single step forward in time, according to 
-```
+```C++
 mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)
 ```
 
-* `jump(double he)`: makes the 'mp' jump of the amount `he`, i.e. 
-```
-mp += he 
-``` 
+* `jump(double he)`: makes the `mp` jump of the amount `he`, i.e. `mp += he` 
+
 * `reset()`: resets all the variables of the neuron (also the log)
 * `spike()`: registers the spike time in `spikeTimes` and set the `mp` to 0. Moreover, it notifies the network that the neuron has spiked, using `NeuralNetwork.activity`
 
