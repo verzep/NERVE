@@ -28,19 +28,22 @@ The most basic element of a neural network is the `Neuron`. We study the evoluti
 
 and are used by the function `step` to handle the evolution on the membrane potential over time according to an Ornstein-Uhlenbeck process, that reads:
 
-\[
-dX(t) = -(\frac{X(t)}{\tau} + \mu) dt + \sigma * dW_t
-\]
+![equation](<a href="http://www.codecogs.com/eqnedit.php?latex=dX(t)&space;=&space;-(\frac{X(t)}{\tau}&space;&plus;&space;\mu)&space;dt&space;&plus;&space;\sigma&space;dW_t" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dX(t)&space;=&space;-(\frac{X(t)}{\tau}&space;&plus;&space;\mu)&space;dt&space;&plus;&space;\sigma&space;dW_t" title="dX(t) = -(\frac{X(t)}{\tau} + \mu) dt + \sigma dW_t" /></a>)
 
-where $X(t)$ is the mp $W_t$ is a standard Wiener process.
+where *X(t)* is the mp *W* is a standard Wiener process.
 
 ### Methods
 To handle the evolution in time of the `mp` the class uses various methods, namely:
 
 * `step( double noise)`: makes a single step forward in time, according to 
-```mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)```
+```
+mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)
+```
+
 * `jump(double he)`: makes the 'mp' jump of the amount 'he', i.e. 
-``mp += he `` 
+```
+mp += he 
+``` 
 * `reset()`: resets all the variables of the neuron (also the log)
 * `spike()`: registers the spike time in `spikeTimes` and set the `mp` to 0. Moreover, it notifies the network that the neuron has spiked, using `NeuralNetwork.activity`
 
