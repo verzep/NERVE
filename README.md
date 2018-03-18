@@ -27,16 +27,18 @@ The most basic element of a neural network is the `Neuron`. We study the evoluti
  
 
 and are used by the function `step` to handle the evolution on the membrane potential over time according to an Ornstein-Uhlenbeck process, that reads:
-$$
+
+\[
 dX(t) = -(\frac{X(t)}{\tau} + \mu) dt + \sigma * dW_t
-$$
+\]
+
 where $X(t)$ is the mp $W_t$ is a standard Wiener process.
 
 ### Methods
 To handle the evolution in time of the `mp` the class uses various methods, namely:
 
 * `step( double noise)`: makes a single step forward in time, according to 
-``mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)``
+```mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)```
 * `jump(double he)`: makes the 'mp' jump of the amount 'he', i.e. 
 ``mp += he `` 
 * `reset()`: resets all the variables of the neuron (also the log)
