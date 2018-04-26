@@ -48,8 +48,11 @@ mp += (-(mp/theta) + mu) * dt  + noise*sigma * sqrt(dt)
 
 ## Class_Neural_Network
 
-Neurons are linked to each others.
+`Neural_Network` is the class that manages the network interactions. It creates its neurons (as described in `Class_Neuron`) and simulates the synaptic interactions among them, generating a correlated activity of the mps. This correlation can be introduced in two (non mutually esclusive) ways:
 
+* __Correlated noise__ : The Wiener processes driving the neurons are correlated. This correlation is introduced through a covariance matrix `R` whose element `r_ij` represent the correlation coefficient of the noise between the i-th and the j-th neuron. The diagonal elements should always be set to one, since the variance of the the noise is controlled by the parameter `sigma`. Moreove `R` must be diagonal.
+
+* __Jump diffusion__ : Every times a neurons _fires_ (i.e. it reaches the threshold), other neurons in the networks may get excited or inhibited by its activity. This is econded in a matrix `H` whose element `h_ij` represent the variation in the activity that the j-th neuron undergoes whenever the i-th neuron fires. So h_ij > 0 means an exitatory linkage, while h_ij < 0 will result in an inibition. A null value simply signifies that the neurons are not connected. Since excitations and inhibitation are (in general) non-mutual, the matrix 'H' do not have to be symmetrical. Its diagonal elements represent self excitations ( or inhibitions), but are usually set to zero.
 
 ## First Passage Times (FPTs)
 
