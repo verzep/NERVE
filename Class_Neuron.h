@@ -12,6 +12,7 @@ class Neuron{
 	
 	private:
 
+	NeuralNetwork * myNN;		//pointer to the Neural Network containing the neuron	
 	int ID;						//number that identifies the neuron in the network (probably redundant) 
 
 	double 	time; 				//time (reduntant, should be a common time for all the neurons)

@@ -45,8 +45,10 @@ int main(){
 	
 	NeuralNetwork NN1(N, mu, sigma, theta, C ); // N , mu, sigma ,theta, C (threshold)
 	
+	// Uncomment next line if you want a neuron to have a different mu
+	//NN1.getNeur(1)->setMu(2);
 	
-	NN1.getNeur(1)->setMu(2);
+
 	//JUMP MODEL
 	
 	cout << "insert the jump matrix " << endl;
@@ -76,7 +78,6 @@ int main(){
 	
 	//--------------------- SPIKE TRAIN
 	
-	
 	//NN1.spikeTrain(250000, false);
 	//NN1.writeSpikeTimes_ST(esp);
 	//Il copia e incolla e' la fonte di ogni nequizia
@@ -85,6 +86,9 @@ int main(){
 	
 	//cout << NN1.getNeur(0) ->getLog().size() << endl;
 	//cout << NN1.getNeur(1) ->getLog().size() << endl;
+	
+
+
 	NN1.printParam();
 	
 	
