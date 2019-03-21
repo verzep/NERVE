@@ -65,7 +65,7 @@ After that, you need to use the method `writeSpikeTimes_FPT()` to print them on 
 
 
 ## Spike Trains (STs)
-The method `spikeTrain(double Tmax, bool save)` is used to generate spike trains. Note that the argument is the time `Tmax` that the system will have to evolve, so that in this case you cannot know in advance how many samples the system will generate. Note also that it is not guranteed (and, in almost every case, won't be) that each neuron will have the same number of samples. The parameter `save`, if set true, will make the network save every step of the evolution: this is really memory consuming and should be used only for debugging porpouses (or if you want to plot the time evolution).
+The method `spikeTrain(double Tmax, bool save)` is used to generate spike trains. Note that the argument is the time `Tmax` that the system will have to evolve, so that in this case you cannot know in advance how many samples the system will generate. Note also that it is not guranteed (and, in almost every case, won't be) that each neuron will have the same number of spikes. The parameter `save`, if set true, will make the network save every step of the evolution: this is really memory consuming and should be used only for debugging porpouses (or if you want to plot the time evolution).
 To save the data on a file you have to use `writeSpikeTimes_ST()`, which works exactly the same way as the FPT one.
 
 ## Code Example
